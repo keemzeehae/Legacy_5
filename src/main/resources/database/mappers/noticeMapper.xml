@@ -6,7 +6,7 @@
 <mapper namespace="com.keem.s1.notice.NoticeDAO">
 
 	<select id="detail" parameterType="com.keem.s1.notice.NoticeDTO" resultType="com.keem.s1.notice.NoticeDTO" >
-		SELECT * FROM NOTICE WHERE NUM=#{noticeDTO}
+		SELECT * FROM NOTICE WHERE NUM=#{num}
 	</select>
 
 	<select id="list" resultType="com.keem.s1.notice.NoticeDTO" >

@@ -25,7 +25,7 @@ public class NoticeTest extends MyJunitTest {
 		noticeDTO.setContents("contents2");
 		noticeDTO.setWriter("bong");
 		//noticeDTO.setRegDate("2022/01/23");
-		noticeDTO.setHit(10L);
+		noticeDTO.setHit(0L);
 		
 		int result = noticeDAO.add(noticeDTO);
 		assertEquals(1, result);
@@ -33,8 +33,8 @@ public class NoticeTest extends MyJunitTest {
 	//@Test
 	public void detailTest() throws Exception{
 		NoticeDTO noticeDTO = new NoticeDTO();
-		noticeDTO.setNum(15L); //여기 무슨말인지 이해가 잘 안감 이 줄이 왜 필요한지 모르겠음
-		noticeDTO=noticeDAO.detail(1L);
+		noticeDTO.setNum(15L); //test 
+		noticeDTO=noticeDAO.detail(noticeDTO);
 		assertNotNull(noticeDTO);
 	}
 	@Test

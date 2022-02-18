@@ -20,8 +20,8 @@ public class NoticeDAO {
 		return sqlSession.insert(NAMESPACE+"add",noticeDTO);
 	}
 	
-	public NoticeDTO detail(Long number) throws Exception {
-		return sqlSession.selectOne(NAMESPACE+"detail",number);
+	public NoticeDTO detail(NoticeDTO noticeDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"detail",noticeDTO);
 	}
 	
 	public int delete(NoticeDTO noticeDTO) throws Exception{
