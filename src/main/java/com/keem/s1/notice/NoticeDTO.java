@@ -1,5 +1,6 @@
 package com.keem.s1.notice;
 
+import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -13,7 +14,7 @@ public class NoticeDTO {
 	private String title;
 	private String contents;
 	private String writer;
-	private Calendar regDate;
+	private Date regDate;
 	private Long hit;
 	public Long getNum() {
 		return num;
@@ -40,10 +41,11 @@ public class NoticeDTO {
 		this.writer = writer;
 	}
 	
-	public Calendar getRegDate() {
+	
+	public Date getRegDate() {
 		return regDate;
 	}
-	public void setRegDate(Calendar regDate) {
+	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
 	public Long getHit() {

@@ -18,17 +18,20 @@ public class NoticeTest extends MyJunitTest {
 		List<NoticeDTO> ar = noticeDAO.list();
 		assertEquals(0,ar.size());
 	}
-	//@Test
+	@Test
 	public void add() throws Exception{
+		for(int i=0;i<10;i++) {
 		NoticeDTO noticeDTO= new NoticeDTO();
-		noticeDTO.setTitle("notice2");
-		noticeDTO.setContents("contents2");
-		noticeDTO.setWriter("bong");
+		noticeDTO.setTitle("notice"+i);
+		noticeDTO.setContents("contents"+i);
+		noticeDTO.setWriter("bong"+i);
 		//noticeDTO.setRegDate("2022/01/23");
 		noticeDTO.setHit(0L);
 		
 		int result = noticeDAO.add(noticeDTO);
-		assertEquals(1, result);
+		}
+		System.out.println("Insert done");
+		//assertEquals(1, result);
 	}
 	//@Test
 	public void detailTest() throws Exception{
@@ -37,7 +40,7 @@ public class NoticeTest extends MyJunitTest {
 		noticeDTO=noticeDAO.detail(noticeDTO);
 		assertNotNull(noticeDTO);
 	}
-	@Test
+	//@Test
 	public void deleteTest() throws Exception{
 		NoticeDTO noticeDTO = new NoticeDTO();
 		noticeDTO.setNum(1L);

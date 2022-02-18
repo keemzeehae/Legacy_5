@@ -11,19 +11,20 @@ public class NoticeDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE ="com.keem.s1.notice.NoticeDAO.";
 	
-	
+	//list
 	public List<NoticeDTO> list () throws Exception{
 		return sqlSession.selectList(NAMESPACE+"list");
 		
 	}
+	//insert
 	public int add(NoticeDTO noticeDTO) throws Exception{
 		return sqlSession.insert(NAMESPACE+"add",noticeDTO);
 	}
-	
+	//detail
 	public NoticeDTO detail(NoticeDTO noticeDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"detail",noticeDTO);
 	}
-	
+	//delete
 	public int delete(NoticeDTO noticeDTO) throws Exception{
 		return sqlSession.delete(NAMESPACE+"delete",noticeDTO);
 	} 
