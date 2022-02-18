@@ -14,8 +14,8 @@ public class BankbookDAO {
 	private final String NAMESAPCE="com.keem.s1.bankbook.BankbookDAO.";
 	
 	//detail 
-	public BankbookDTO detail(Long num) throws Exception{
-		return sqlSession.selectOne(NAMESAPCE+"detail", num);
+	public BankbookDTO detail(BankbookDTO bankbookDTO) throws Exception{
+		return sqlSession.selectOne(NAMESAPCE+"detail", bankbookDTO);
 		
 	}
 	

@@ -5,20 +5,20 @@
     
 <mapper namespace="com.keem.s1.bankbook.BankbookDAO">
 
-	<select id="detail" parameterType="java.lang.Long" resultType="com.keem.s1.bankbook.BankbookDTO">
-		SELECT * FROM BANKBOOK WHERE BOOKNUMBER=#{num}
+	<select id="detail" parameterType="BankbookDTO" resultType="BankbookDTO">
+		SELECT * FROM BANKBOOK WHERE BOOKNUMBER=#{bookNumber}
 	</select>
 		
-	<select id="list" resultType="com.keem.s1.bankbook.BankbookDTO">
+	<select id="list" resultType="BankbookDTO">
 		SELECT * FROM BANKBOOK
 	</select>
 	
-	<insert id="add" parameterType="com.keem.s1.bankbook.BankbookDTO">
+	<insert id="add" parameterType="BankbookDTO">
 		INSERT INTO BANKBOOK 
 		VALUES (BANKBOOK_SEQ.NEXTVAL,#{bookName},#{bookContents},#{bookRate},#{bookSale} )
 	</insert>
 	
-	<delete id="delete" parameterType="com.keem.s1.bankbook.BankbookDTO" >
+	<delete id="delete" parameterType="BankbookDTO" >
 		DELETE BANKBOOK WHERE BOOKNUMBER =#{bookNumber}
 	</delete>
 </mapper>
