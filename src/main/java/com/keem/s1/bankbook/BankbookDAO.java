@@ -11,27 +11,27 @@ public class BankbookDAO {
 
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESAPCE="com.keem.s1.bankbook.BankbookDAO.";
+	private final String NAMESPACE="com.keem.s1.bankbook.BankbookDAO.";
 	
 	//detail 
 	public BankbookDTO detail(BankbookDTO bankbookDTO) throws Exception{
-		return sqlSession.selectOne(NAMESAPCE+"detail", bankbookDTO);
+		return sqlSession.selectOne(NAMESPACE+"detail", bankbookDTO);
 		
 	}
 	
 	
 	//list
 	public List<BankbookDTO> list() throws Exception{
-		return sqlSession.selectList(NAMESAPCE+"list");
+		return sqlSession.selectList(NAMESPACE+"list");
 	}
 	//insert
 	public int add(BankbookDTO bankbookDTO) throws Exception {
-		return sqlSession.insert(NAMESAPCE+"add",bankbookDTO );
+		return sqlSession.insert(NAMESPACE+"add",bankbookDTO );
 	}
 	
 	//delete
 	public int delete(BankbookDTO bankbookDTO) throws Exception{
-		return sqlSession.delete(NAMESAPCE+"delete", bankbookDTO);
+		return sqlSession.delete(NAMESPACE+"delete", bankbookDTO);
 	}
 	
 }

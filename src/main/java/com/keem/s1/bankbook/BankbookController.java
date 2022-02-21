@@ -14,6 +14,14 @@ public class BankbookController {
 
 	@Autowired
 	private BankbookService bankbookService;
+	
+	@RequestMapping(value="delete")
+	public String delete(BankbookDTO bankbookDTO) throws Exception{
+		int result = bankbookService.delete(bankbookDTO);
+		return "redirect:./list";
+		
+	}
+	
 	@RequestMapping(value="add", method=RequestMethod.POST)
 	public String add(BankbookDTO bankbookDTO) throws Exception{
 		int result= bankbookService.add(bankbookDTO);

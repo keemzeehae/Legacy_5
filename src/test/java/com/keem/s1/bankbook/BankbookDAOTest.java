@@ -20,14 +20,14 @@ public class BankbookDAOTest extends MyJunitTest {
 	}
 
 	// list
-	// @Test
+	@Test
 	public void list() throws Exception {
 		List<BankbookDTO> ar = bankbookDAO.list();
 		assertNotEquals(0, ar.size());
 	}
 
 	// insert -add
-	@Test
+	//@Test
 	public void add() throws Exception {
 		for (int i = 0; i < 10; i++) {
 
