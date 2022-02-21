@@ -10,6 +10,10 @@ public class NoticeService {
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
+	public int delete(NoticeDTO noticeDTO) throws Exception{
+		return noticeDAO.delete(noticeDTO);
+	}
+	
 	
 	public int add (NoticeDTO noticeDTO) throws Exception{
 		return noticeDAO.add(noticeDTO);

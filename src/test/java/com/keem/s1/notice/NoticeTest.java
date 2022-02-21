@@ -18,7 +18,7 @@ public class NoticeTest extends MyJunitTest {
 		List<NoticeDTO> ar = noticeDAO.list();
 		assertEquals(0,ar.size());
 	}
-	@Test
+	//@Test
 	public void add() throws Exception{
 		for(int i=0;i<10;i++) {
 		NoticeDTO noticeDTO= new NoticeDTO();

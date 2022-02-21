@@ -13,6 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
+	
+	@RequestMapping(value="delete")
+	public String delete(NoticeDTO noticeDTO) throws Exception{
+		int result=noticeService.delete(noticeDTO);
+		return "redirect:./list";
+	}
 
 	@RequestMapping(value="add", method=RequestMethod.POST)
 	public String add(NoticeDTO noticeDTO) throws Exception{

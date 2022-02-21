@@ -15,5 +15,6 @@
 	<h3>조회수 : ${notice.hit}</h3>
 	
 	<a href="./list">List</a>
+	<a href="./delete?num=${notice.num}">Delete</a>
 </body>
 </html>
