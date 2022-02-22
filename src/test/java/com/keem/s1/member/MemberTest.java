@@ -13,6 +13,14 @@ public class MemberTest extends MyJunitTest {
 	private MemberDAO memberDAO;
 	
 	@Test
+	public void mypage() throws Exception{
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setId("id3");
+		memberDTO=memberDAO.mypage(memberDTO);
+		assertNotNull(memberDTO);
+	}
+	
+	//@Test
 	public void login() throws Exception{
 		
 			MemberDTO memberDTO = new MemberDTO();
