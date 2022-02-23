@@ -14,6 +14,11 @@ public class BankbookService {
 	@Autowired
 	private BankbookDAO bankbookDAO;
 	
+	//update
+	public int update(BankbookDTO bankbookDTO) throws Exception{
+		return bankbookDAO.update(bankbookDTO);
+	}
+	
 	public int delete(BankbookDTO bankbookDTO) throws Exception{
 		return bankbookDAO.delete(bankbookDTO);
 	}

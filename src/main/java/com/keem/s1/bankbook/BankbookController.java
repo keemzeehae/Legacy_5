@@ -1,9 +1,11 @@
 package com.keem.s1.bankbook;
 
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,6 +17,20 @@ public class BankbookController {
 	@Autowired
 	private BankbookService bankbookService;
 
+	
+	//update
+	@RequestMapping(value="update",method=RequestMethod.POST)
+	public String update(BankbookDTO bankbookDTO) throws Exception{
+		int result=bankbookService.update(bankbookDTO);
+		return "redirect:./list";
+	}
+	
+	@RequestMapping(value="update",method=RequestMethod.GET)
+	public void update(BankbookDTO bankbookDTO, Model model) throws Exception{
+		//매개변수로 받은 DTO랑 detail()안에 들어있는 DTO랑 값이 다름 결과값을 덮어씌우는것
+		bankbookDTO=bankbookService.detail(bankbookDTO);
+		model.addAttribute("dto",bankbookDTO);
+	}
 	
 	@RequestMapping(value="delete")
 	public String delete(BankbookDTO bankbookDTO) throws Exception{

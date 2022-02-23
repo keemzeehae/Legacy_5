@@ -5,6 +5,11 @@
     
 <mapper namespace="com.keem.s1.bankbook.BankbookDAO">
 
+	<update id="update" parameterType="BankbookDTO">
+		UPDATE BANKBOOK SET BOOKNAME=#{bookName},BOOKCONTENTS=#{bookContents},BOOKSALE=#{bookSale},BOOKRATE=#{bookRate}
+		WHERE BOOKNUMBER=#{bookNumber}
+	</update>
+
 	<select id="detail" parameterType="BankbookDTO" resultType="BankbookDTO">
 		SELECT * FROM BANKBOOK WHERE BOOKNUMBER=#{bookNumber}
 	</select>
