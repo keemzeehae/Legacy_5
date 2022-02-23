@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="./template/header_css.jsp"></c:import>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
 </head>
 <body>
@@ -15,7 +15,7 @@
 	<h1>index page</h1>
 	<!-- scope명 생략가능 -->
 	<h3>${sessionScope.member.name}님환영합니다
-		<span class="material-icons">login</span>
+		<span class="material-icons-outlined"> account_circle </span>
 	</h3>
 	<div>
 		<c:if test="${not empty member}">

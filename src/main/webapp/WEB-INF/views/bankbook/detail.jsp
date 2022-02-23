@@ -13,6 +13,7 @@
 	 <h3>BookSale : ${book.bookSale }</h3>
 	 
 	 <a href="./list">List</a>
+	 <a href="./update">Update</a>
 	 <a href="./delete?bookNumber=${book.bookNumber}">Delete</a>
 </body>
 </html>

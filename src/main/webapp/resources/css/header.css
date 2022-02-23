@@ -23,6 +23,10 @@
 
 }
 
+.icon{
+	vertical-align:bottom;
+}
+
 .nav_sub > ul{
     width: 300px;
     display: flex;
