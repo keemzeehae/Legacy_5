@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.keem.s1.member.MemberDAO"><!-- join하려고 하는 mapper -->
+	
+	<select id="mypage" parameterType="MemberDTO" resultType="MemberDTO">
+		SELECT ID,NAME,EMAIL,PHONE FROM MEMBER WHERE ID=#{id}
+	</select>
+
+	<select id="login" parameterType="MemberDTO" resultType="MemberDTO">
+		SELECT ID, NAME FROM MEMBER WHERE ID=#{id} AND PW=#{pw}
+	</select>
+
+	<insert id="join" parameterType="MemberDTO" >
+		INSERT INTO MEMBER 
+		VALUES (#{id},#{pw},#{name},#{phone},#{email})
+	</insert>
+	
+	
+	
+</mapper>

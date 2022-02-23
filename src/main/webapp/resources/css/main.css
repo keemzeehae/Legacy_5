@@ -1,0 +1,43 @@
+.main{
+    margin-top: 100px ;
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+   
+}
+
+.main>title{
+    font-size: 20px;
+    justify-content: center;
+    display: flex;
+
+}
+
+#tb1{
+    background-color: black;
+    width: 920px;
+    margin: 50px auto 0px auto;
+    
+
+}
+
+#tr1{
+    display: flex;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 920px;
+    height: 45.5px;
+
+    
+}
+
+#tb2 {
+    background-color: gainsboro;
+    width: 920px;
+    height: 45.5px;
+    margin: 10px auto 10px auto;
+    
+}
