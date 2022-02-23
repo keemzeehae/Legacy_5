@@ -3,14 +3,17 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
-  
-  <configuration>
-  	<typeAliases>
-  		<typeAlias type="com.keem.s1.bankbook.BankbookDTO" alias="BankbookDTO"/>
-  		<typeAlias type="java.lang.Long" alias="Long"/>
-  		<typeAlias type="com.keem.s1.member.MemberDTO" alias="MemberDTO"/>
-  	</typeAliases>
-  
-		<typeAlias type="com.keem.s1.notice.NoticeDTO" alias="NoticeDTO"/>
-  </configuration>
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.keem.s1.bankbook.BankbookDTO"
+			alias="BankbookDTO" />
+		<typeAlias type="java.lang.Long" alias="Long" />
+		<typeAlias type="com.keem.s1.member.MemberDTO"
+			alias="MemberDTO" />
+
+		<typeAlias type="com.keem.s1.notice.NoticeDTO"
+			alias="NoticeDTO" />
+	</typeAliases>
+</configuration>
 
