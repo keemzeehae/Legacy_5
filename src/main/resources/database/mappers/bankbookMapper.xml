@@ -9,13 +9,20 @@
 		UPDATE BANKBOOK SET BOOKNAME=#{bookName},BOOKCONTENTS=#{bookContents},BOOKSALE=#{bookSale},BOOKRATE=#{bookRate}
 		WHERE BOOKNUMBER=#{bookNumber}
 	</update>
+	
+	<select id="total" resultType="Long">
+		SELECT COUNT(bookNumber) FROM BANKBOOK
+	</select>
 
 	<select id="detail" parameterType="BankbookDTO" resultType="BankbookDTO">
 		SELECT * FROM BANKBOOK WHERE BOOKNUMBER=#{bookNumber}
 	</select>
 		
-	<select id="list" resultType="BankbookDTO">
-		SELECT * FROM BANKBOOK
+	<select id="list" parameterType="Pager" resultType="BankbookDTO">
+		SELECT * FROM 
+		(SELECT ROWNUM R, B.* FROM
+		(SELECT * FROM BANKBOOK WHERE BOOKNUMBER>0 ORDER BY BOOKNUMBER DESC) B)
+		WHERE R BETWEEN #{startRow} AND #{lastRow}
 	</select>
 	
 	<insert id="add" parameterType="BankbookDTO">

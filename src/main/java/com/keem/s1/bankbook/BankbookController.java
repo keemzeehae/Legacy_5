@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.keem.s1.util.Pager;
+
 @Controller
 @RequestMapping(value = "/bankbook/*")
 public class BankbookController {
@@ -61,13 +63,14 @@ public class BankbookController {
 //Modle 로만 해도 void로 해주면 기본으로 찾아서 들어가니까 Model 이라고 하는게 더 편할 수 있음
 	// list
 	@RequestMapping(value = "list", method = RequestMethod.GET)
-	public ModelAndView list(ModelAndView mv) throws Exception {
+	public ModelAndView list(ModelAndView mv, Pager pager) throws Exception {
 		// ModelandView
 		// 매개변수 선언
 		// 메서드내에서 객체 생성
 
-		List<BankbookDTO> ar = bankbookService.list();
+		List<BankbookDTO> ar = bankbookService.list(pager);
 		mv.addObject("list", ar);
+		mv.addObject("pager",pager);
 		mv.setViewName("bankbook/list");
 		return mv;
 	}
