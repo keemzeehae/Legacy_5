@@ -11,7 +11,6 @@
 <body>
 <c:import url="./../template/header.jsp"></c:import>
 	<h1>Notice List page</h1>
-	<h1>${list}</h1>
 	<table>
 		<thead>
 			<tr>
@@ -35,6 +34,9 @@
 			</c:forEach>
 
 		</tbody>
+		
+		<div>
+		</div>
 
 	</table>
 	<a href="./add">add</a>
