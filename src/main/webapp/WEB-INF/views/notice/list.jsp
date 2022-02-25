@@ -32,13 +32,24 @@
 					<td>${pageScope.notice.hit}</td>
 				</tr>
 			</c:forEach>
-
 		</tbody>
-		
-		<div>
-		</div>
-
 	</table>
+		
+	<div>
+		<c:if test="${pager.pre}">
+			<a href="./list?pageNum=${pager.startNum-1}"> << </a>
+		</c:if>
+		
+		<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+			<a href="./list?pageNum=${i}">${i}</a>
+			
+		</c:forEach>
+		<c:if test="${pager.next}">
+			<a href="./list?pageNum=${pager.lastNum+1}">>></a>
+		</c:if>
+	</div>
+
+	
 	<a href="./add">add</a>
 
 </body>

@@ -23,30 +23,7 @@ public class Pager {
 	private boolean pre;
 	private boolean next;
 	
-	
 
-	
-	public Long getStartNum() {
-		return startNum;
-	}
-
-
-
-	public void setStartNum(Long startNum) {
-		this.startNum = startNum;
-	}
-
-
-
-	public Long getLastNum() {
-		return lastNum;
-	}
-
-
-
-	public void setLastNum(Long lastNum) {
-		this.lastNum = lastNum;
-	}
 
 
 
@@ -56,11 +33,13 @@ public class Pager {
 	}
 	
 	public void makeNum(Long totalCount) {
+		
 		Long totalPage=totalCount/this.getLine();
-		if(totalCount%this.getLine()!=0) {
+		if(totalCount%this.getLine() != 0) {
 			totalPage++;
 			
 		}
+		
 		Long perBlock=10L;
 		
 		Long totalBlock=totalPage/perBlock;
@@ -84,11 +63,11 @@ public class Pager {
 		}
 		
 		this.next=false;
-		if(totalBlock>curBlock) {
+		if(totalBlock > curBlock) {
 			this.next=true;
 		}
 		
-		if(totalBlock==curBlock) {
+		if(curBlock == totalBlock) {
 			this.lastNum=totalPage;
 		}
 		
@@ -96,8 +75,8 @@ public class Pager {
 	
 	public Long getLine() {
 		//null이 오거나 0이 오거나 음수가 올때 셋팅>>한줄도 없음 또는 누군가 음수값 넣을때
-		if(this.line==null||this.line<1) {
-			this.line=10L;
+		if(this.line==null || this.line < 1) {
+			this.line=10L; 
 		}
 		
 		return line;
@@ -109,7 +88,7 @@ public class Pager {
 	
 	public Long getPageNum() {
 		//페이지 번호에 아무것도 넣어주지 않거나 음수일때 1번 페이지를 보여줘라
-		if(this.pageNum==null||this.pageNum<1) {
+		if(this.pageNum==null || this.pageNum<1) {
 			this.pageNum=1L;
 		}
 		return pageNum;
@@ -135,7 +114,27 @@ public class Pager {
 		this.lastRow = lastRow;
 	}
 
+	public Long getStartNum() {
+		return startNum;
+	}
 
+
+
+	public void setStartNum(Long startNum) {
+		this.startNum = startNum;
+	}
+
+
+
+	public Long getLastNum() {
+		return lastNum;
+	}
+
+
+
+	public void setLastNum(Long lastNum) {
+		this.lastNum = lastNum;
+	}
 
 	public boolean isPre() {
 		return pre;

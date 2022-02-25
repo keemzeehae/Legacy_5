@@ -9,8 +9,8 @@
 		<typeAlias type="com.keem.s1.bankbook.BankbookDTO" alias="BankbookDTO" />
 		<typeAlias type="java.lang.Long" alias="Long" />
 		<typeAlias type="com.keem.s1.member.MemberDTO" alias="MemberDTO" />
-
 		<typeAlias type="com.keem.s1.notice.NoticeDTO" alias="NoticeDTO" />
+		<typeAlias type="com.keem.s1.util.Pager" alias="Pager" />
 	</typeAliases>
 </configuration>
 

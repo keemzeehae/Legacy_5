@@ -9,8 +9,15 @@
 		SELECT * FROM NOTICE WHERE NUM=#{num}
 	</select>
 
-	<select id="list" resultType="NoticeDTO" >
-		SELECT * FROM NOTICE
+	<select id="total" resultType="Long">
+		SELECT COUNT(NUM) FROM NOTICE
+	</select>
+	
+	<select id="list" parameterType="Pager" resultType="NoticeDTO" >
+		SELECT * FROM 
+		(SELECT ROWNUM R, B.* FROM 
+		(SELECT * FROM NOTICE WHERE NUM>0 ORDER BY NUM DESC) B) 
+				WHERE R BETWEEN #{startRow} AND #{lastRow}
 	</select>
 
 	<insert id="add" parameterType="NoticeDTO" >
