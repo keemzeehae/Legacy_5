@@ -72,11 +72,30 @@ public class Pager {
 		if(this.getPageNum()%perBlock!=0) {
 			curBlock++;
 		}
-		//-----여기까지 했음 curBlock으로 startNum, lastNum 구하기 부터 해야함
+		//-----여기까지 했음 curBlock으로 startNum, lastNum 구하기
+		//curBlock이 몇번인지에 따라 startNum, lastNum 이 얼마인지 알아야함
+		this.startNum=(curBlock-1)*perBlock+1;
+		this.lastNum=curBlock*perBlock;
+		
+		//이전, 다음 블럭의 유무를
+		this.pre=false;
+		if(curBlock>1) {
+			this.pre=true;
+		}
+		
+		this.next=false;
+		if(totalBlock>curBlock) {
+			this.next=true;
+		}
+		
+		if(totalBlock==curBlock) {
+			this.lastNum=totalPage;
+		}
+		
 	}
 	
 	public Long getLine() {
-		//null이 오거나 0이 오거나 음수가 올때 셋팅
+		//null이 오거나 0이 오거나 음수가 올때 셋팅>>한줄도 없음 또는 누군가 음수값 넣을때
 		if(this.line==null||this.line<1) {
 			this.line=10L;
 		}
@@ -87,8 +106,9 @@ public class Pager {
 	public void setLine(Long line) {
 		this.line = line;
 	}
-
+	
 	public Long getPageNum() {
+		//페이지 번호에 아무것도 넣어주지 않거나 음수일때 1번 페이지를 보여줘라
 		if(this.pageNum==null||this.pageNum<1) {
 			this.pageNum=1L;
 		}
@@ -113,6 +133,30 @@ public class Pager {
 
 	public void setLastRow(Long lastRow) {
 		this.lastRow = lastRow;
+	}
+
+
+
+	public boolean isPre() {
+		return pre;
+	}
+
+
+
+	public void setPre(boolean pre) {
+		this.pre = pre;
+	}
+
+
+
+	public boolean isNext() {
+		return next;
+	}
+
+
+
+	public void setNext(boolean next) {
+		this.next = next;
 	}
 	
 	
