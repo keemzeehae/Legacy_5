@@ -42,7 +42,7 @@ public class BankbookService {
 		//결론은 DAO 메서드 호출 전 전처리 작업
 		pager.makeRow();
 		
-		Long totalCount= bankbookDAO.total();
+		Long totalCount= bankbookDAO.total(pager);
 		pager.makenum(totalCount);
 		//pager.makenum();
 		//호출 후 후처리 작업
