@@ -30,7 +30,7 @@ public class NoticeService {
 	public List<NoticeDTO> list(Pager pager) throws Exception{
 		//DAO 메서드 호출 전 전처리 작업
 		pager.makeRow();
-		Long totalCount=noticeDAO.total();
+		Long totalCount=noticeDAO.total(pager);
 		pager.makeNum(totalCount);
 		
 		//호출 후 후처리 작업 

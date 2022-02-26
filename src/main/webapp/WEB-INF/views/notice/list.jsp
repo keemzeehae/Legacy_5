@@ -11,6 +11,21 @@
 <body>
 <c:import url="./../template/header.jsp"></c:import>
 	<h1>Notice List page</h1>
+	<!-- 검색창 -->
+	<div>
+		<form action="./list" method="get">
+			<fieldset>
+				<select name="kind">
+					<option value="title">제목</option>
+					<option value="contents">내용</option>
+				</select>
+				<!-- 키보드에서 입력할 값 -->
+				<input type="text" name="search" value="${pager.search}">
+				<button type="submit">검색</button>
+			</fieldset>
+		</form>
+	</div>
+	
 	<table>
 		<thead>
 			<tr>
@@ -40,8 +55,8 @@
 			<a href="./list?pageNum=${pager.startNum-1}"> << </a>
 		</c:if>
 		
-		<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-			<a href="./list?pageNum=${i}">${i}</a>
+		<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" step="1" var="i">
+			<a href="./list?pageNum=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a>
 			
 		</c:forEach>
 		<c:if test="${pager.next}">

@@ -9,15 +9,38 @@
 		SELECT * FROM NOTICE WHERE NUM=#{num}
 	</select>
 
-	<select id="total" resultType="Long">
+	<select id="total" resultType="Long" parameterType="Pager">
 		SELECT COUNT(NUM) FROM NOTICE
+		WHERE NUM>0 
+			AND
+			<choose>
+				<when test="kind=='title'">
+					TITLE
+				</when>
+				<otherwise>
+					CONTENTS
+				</otherwise>
+			</choose> 
+			LIKE '%'||#{search}||'%'
 	</select>
-	
+	<!-- title 로 검색할때 -->
 	<select id="list" parameterType="Pager" resultType="NoticeDTO" >
 		SELECT * FROM 
 		(SELECT ROWNUM R, B.* FROM 
-		(SELECT * FROM NOTICE WHERE NUM>0 ORDER BY NUM DESC) B) 
-				WHERE R BETWEEN #{startRow} AND #{lastRow}
+		(SELECT * FROM NOTICE WHERE 
+			NUM>0 
+			AND
+			<choose>
+				<when test="kind=='title'">
+					TITLE
+				</when>
+				<otherwise>
+					CONTENTS
+				</otherwise>
+			</choose> 
+			LIKE '%'||#{search}||'%'
+			ORDER BY NUM DESC) B) 
+		WHERE R BETWEEN #{startRow} AND #{lastRow}
 	</select>
 
 	<insert id="add" parameterType="NoticeDTO" >
