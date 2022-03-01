@@ -16,5 +16,6 @@
 	
 	<a href="./list">List</a>
 	<a href="./delete?num=${notice.num}">Delete</a>
+	<a href="./update?num=${notice.num}">Update</a>
 </body>
 </html>

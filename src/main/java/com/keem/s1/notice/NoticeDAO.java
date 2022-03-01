@@ -13,9 +13,13 @@ public class NoticeDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE ="com.keem.s1.notice.NoticeDAO.";
 	
-	//total
+	//total count
 	public Long total(Pager pager) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"total",pager);
+	}
+	//update 
+	public int update(NoticeDTO noticeDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"update",noticeDTO);
 	}
 	
 	//list

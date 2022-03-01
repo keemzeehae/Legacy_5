@@ -5,6 +5,11 @@
     
 <mapper namespace="com.keem.s1.notice.NoticeDAO">
 
+	<update id="update" parameterType="NoticeDTO">
+		UPDATE NOTICE SET TITLE=#{title},CONTENTS=#{contents}
+		WHERE NUM=#{num}
+	</update>
+	
 	<select id="detail" parameterType="NoticeDTO" resultType="NoticeDTO" >
 		SELECT * FROM NOTICE WHERE NUM=#{num}
 	</select>
