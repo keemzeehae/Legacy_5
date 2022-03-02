@@ -35,9 +35,19 @@ public class BankbookController {
 	}
 	
 	@RequestMapping(value="delete")
-	public String delete(BankbookDTO bankbookDTO) throws Exception{
+	public String delete(BankbookDTO bankbookDTO,Model model) throws Exception{
 		int result = bankbookService.delete(bankbookDTO);
-		return "redirect:./list";
+		
+		String view="common/result";
+		if(bankbookDTO==null) {
+			model.addAttribute("path","bankbook/list");
+			model.addAttribute("message","없는 번호 입니다");
+			
+		}else {
+			model.addAttribute("path","./list");
+			model.addAttribute("message","삭제되었습니다");
+		}
+		return view;
 		
 	}
 	
@@ -53,12 +63,24 @@ public class BankbookController {
 		
 	}
 
+	//조회가 성공하면 출력
+	//조회가 실패하면 alert 로 없는 번호입니다 
+	// 다시 list로 이동
+	//common/result 활용
+	
 	@RequestMapping(value="detail", method=RequestMethod.GET)
-	public ModelAndView detail(ModelAndView mv, BankbookDTO bankbookDTO) throws Exception{
+	public String detail(Model model, BankbookDTO bankbookDTO) throws Exception{
 		bankbookDTO= bankbookService.detail(bankbookDTO);
-		mv.addObject("book", bankbookDTO);
-		mv.setViewName("bankbook/detail");
-		return mv;
+		String view="common/result";
+		
+		if (bankbookDTO!=null) {
+			view="bankbook/detail";
+			model.addAttribute("book",bankbookDTO);
+		}else {
+			model.addAttribute("message","없는번호 입니다");
+			model.addAttribute("path","./list");
+		}
+		return view;
 	}
 //Modle 로만 해도 void로 해주면 기본으로 찾아서 들어가니까 Model 이라고 하는게 더 편할 수 있음
 	// list
