@@ -93,6 +93,9 @@ public class MemberController {
 	@RequestMapping(value="join",method=RequestMethod.GET)
 	public void join() throws Exception{
 		
+	}
+	@RequestMapping(value="joinCheck",method=RequestMethod.GET)
+	public void joinCheck() throws Exception {
 		
 	}
 }

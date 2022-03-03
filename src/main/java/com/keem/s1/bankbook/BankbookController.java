@@ -39,13 +39,13 @@ public class BankbookController {
 		int result = bankbookService.delete(bankbookDTO);
 		
 		String view="common/result";
-		if(bankbookDTO==null) {
-			model.addAttribute("path","bankbook/list");
-			model.addAttribute("message","없는 번호 입니다");
-			
-		}else {
+		if(result!=0) {
 			model.addAttribute("path","./list");
 			model.addAttribute("message","삭제되었습니다");
+			
+		}else {
+			model.addAttribute("path","bankbook/list");
+			model.addAttribute("message","없는 번호 입니다");
 		}
 		return view;
 		
