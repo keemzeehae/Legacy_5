@@ -4,15 +4,32 @@ const pw =document.getElementById('pw');
 const pw2 =document.getElementById('pw2');
 const id =document.getElementById('id');
 const idResult=document.getElementById('idResult');
+const name=document.getElementById('name');
+const phone=document.getElementById('phone');
+const email=document.getElementById('email');
 
 const frm=document.getElementById('frm');
 const btn=document.getElementById('btn');
 
-let idCheck=false;
+let idCheck=false; //Check가 (필수입력)되면 true , Check 안되면 false
 let pwCheck=false;
+let nameCheck=false;
+let phoneCheck=false;
+let emailCheck=false;
+
+pw.addEventListener("change",function(){
+    pwCheck=false;
+    pw2.value='';
+    pw2.focus();
+    pwResult2.innerHTML='';
+})
 
 btn.addEventListener("click",function(){
-    frm.submit();
+    if(idCheck&&pwCheck&&nameCheck&&phoneCheck&&emailCheck){
+        frm.submit();
+    }else{
+        alert('정보를 입력하세요');
+    }
 })
 
 pw.addEventListener("keyup",function(){
@@ -31,10 +48,10 @@ pw.addEventListener("keyup",function(){
 id.onblur=function(){
     
     idResult.innerHTML="ID는 필수 입니다";
-    idCheck=true;
+    idCheck=false;
     if(id.value.length>0){
         idResult.innerHTML="사용가능";
-        idCheck=false;
+        idCheck=true;
     }
 }
 //null 도 알수없는 데이터 이지만 자리를 차지하고 있음
@@ -73,5 +90,29 @@ pw2.addEventListener("blur",function(){
 //     }
 // })
 
+name.addEventListener("blur",function(){
+    if(name.value==''){
+        nameCheck=false;
+    }else{
+        nameCheck=true;
+    }
+});
 
+phone.addEventListener("blur",function(){
+    if(phone.value==''){
+        phoneCheck=false;
+    }else{
+        phoneCheck=true;
+    }
+
+});
+
+email.addEventListener("blur",function(){
+    if(email.value==''){
+        emailCheck=false;
+    }else{
+        emailCheck=true;
+    }
+
+})
 

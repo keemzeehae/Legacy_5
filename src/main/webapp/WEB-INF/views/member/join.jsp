@@ -29,17 +29,17 @@
 
 		<fieldset>
 			<legend>이름</legend>
-			<input type="text" name="name">
+			<input type="text" name="name" id="name"> 
 		</fieldset>
 
 		<fieldset>
 			<legend>전화번호</legend>
-			<input type="text" name="phone">
+			<input type="text" name="phone" id="phone">
 		</fieldset>
 
 		<fieldset>
 			<legend>이메일</legend>
-			<input type="text" name="email">
+			<input type="text" name="email" id="email">
 		</fieldset>
 
 		<fieldset>
@@ -47,7 +47,7 @@
 		</fieldset>
 
 		
-		<script src="../resources/js/join.js"></script>
+		<script src="../resources/js/join2.js"></script>
 
 	</form>
 </body>
