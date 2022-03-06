@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +16,18 @@ public class QnaController {
 	
 	@Autowired
 	private QnaService qnaService;
+	
+	@RequestMapping(value="update",method=RequestMethod.POST)
+	public String update(QnaDTO qnaDTO) throws Exception{
+		int result=qnaService.update(qnaDTO);
+		return "redirect:./list";
+	}
+	
+	@RequestMapping(value="update",method=RequestMethod.GET)
+	public void update(QnaDTO qnaDTO,Model model) throws Exception{
+		qnaDTO=qnaService.detail(qnaDTO);
+		model.addAttribute("dto",qnaDTO);
+	}
 	
 	@RequestMapping(value="delete",method=RequestMethod.POST)
 	public String delete(QnaDTO qnaDTO) throws Exception{

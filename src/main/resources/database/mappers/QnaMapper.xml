@@ -4,6 +4,12 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
  <mapper namespace="com.keem.s1.qna.QnaDAO">
+ 
+ 	<update id="update" parameterType="QnaDTO">
+ 		UPDATE QNA SET TITLE=#{title},CONTENTS=#{contents},WRITER=#{writer}
+ 		WHERE NUM=#{num}
+ 	</update>
+ 	
  	<select id="list" resultType="QnaDTO">
  		SELECT * FROM QNA
  	</select>

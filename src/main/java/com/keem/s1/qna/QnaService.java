@@ -31,4 +31,9 @@ public class QnaService {
 	public int delete(QnaDTO qnaDTO) throws Exception{
 		return qnaDAO.delete(qnaDTO);
 	}
+	
+	//update
+	public int update(QnaDTO qnaDTO) throws Exception{
+		return qnaDAO.update(qnaDTO);
+	}
 }
