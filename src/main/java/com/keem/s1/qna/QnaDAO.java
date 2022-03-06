@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.keem.s1.util.Pager;
+
 @Repository
 public class QnaDAO {
 
@@ -13,9 +15,14 @@ public class QnaDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.keem.s1.qna.QnaDAO.";
 
+	//total count
+	public Long total(Pager pager) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"total",pager);
+	}
+	
 	// list
-	public List<QnaDTO> list() throws Exception {
-		return sqlSession.selectList(NAMESPACE+"list");
+	public List<QnaDTO> list(Pager pager) throws Exception {
+		return sqlSession.selectList(NAMESPACE+"list",pager);
 	}
 	
 	//insert

@@ -5,13 +5,42 @@
     
  <mapper namespace="com.keem.s1.qna.QnaDAO">
  
+ 	<select id="total" resultType="Long" parameterType="Pager">
+ 		SELECT COUNT(num) FROM QNA
+ 		WHERE NUM>0
+ 		AND
+ 			<choose>
+ 				<when test="kind=='writer'">Writer</when>
+ 				<when test="kind=='title'">Title</when>
+ 				<otherwise>
+ 					CONTENTS
+ 				</otherwise>
+ 			</choose>
+ 			LIKE '%'||#{search}||'%'
+ 	</select>
+ 
  	<update id="update" parameterType="QnaDTO">
  		UPDATE QNA SET TITLE=#{title},CONTENTS=#{contents},WRITER=#{writer}
  		WHERE NUM=#{num}
  	</update>
  	
- 	<select id="list" resultType="QnaDTO">
- 		SELECT * FROM QNA
+ 	<select id="list" parameterType="Pager" resultType="QnaDTO" >
+ 		SELECT * FROM
+ 		(SELECT ROWNUM R, Q.* FROM
+ 		(SELECT * FROM QNA WHERE
+ 			NUM>0
+ 			AND 
+ 			<choose>
+ 				<when test="kind=='writer'">Writer</when>
+ 				<when test="kind=='title'">Title</when>
+ 				<otherwise>
+ 					CONTENTS
+ 				</otherwise>
+ 			</choose>
+ 			LIKE '%'||#{search}||'%'
+ 			ORDER BY NUM DESC) Q)
+ 		WHERE R BETWEEN #{startRow} AND #{lastRow}
+ 			
  	</select>
  	
  	<insert id="add" parameterType="QnaDTO">
