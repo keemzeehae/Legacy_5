@@ -10,8 +10,8 @@
  		WHERE NUM>0
  		AND
  			<choose>
- 				<when test="kind=='writer'">Writer</when>
- 				<when test="kind=='title'">Title</when>
+ 				<when test="kind=='writer'">WRITER</when>
+ 				<when test="kind=='title'">TITLE</when>
  				<otherwise>
  					CONTENTS
  				</otherwise>
@@ -31,8 +31,8 @@
  			NUM>0
  			AND 
  			<choose>
- 				<when test="kind=='writer'">Writer</when>
- 				<when test="kind=='title'">Title</when>
+ 				<when test="kind=='writer'">WRITER</when>
+ 				<when test="kind=='title'">TITLE</when>
  				<otherwise>
  					CONTENTS
  				</otherwise>

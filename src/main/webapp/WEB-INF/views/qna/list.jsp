@@ -18,7 +18,8 @@
 					<option value="writer">작성자</option>
 					<option value="title">제목</option>
 					<option value="contents">내용</option>
-				</select> <input type="text" name="search" value="${pager.search}">
+				</select> 
+				<input type="text" name="search" value="${pager.search}">
 				<button type="submit">검색</button>
 			</fieldset>
 		</form>
@@ -52,8 +53,7 @@
 		<c:if test="${pager.pre}">
 			<a href="./list?page=${pager.startNum-1}">Preview</a>
 		</c:if>
-		<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" step="1"
-			var="i">
+		<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" step="1" var="i">
 			<a href="./list?page=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a>
 		</c:forEach>
 		<c:if test="${pager.next}">
