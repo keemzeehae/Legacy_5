@@ -3,10 +3,10 @@ package com.keem.s1.util;
 public class Pager {
 	
 	//페이지당 보여줄 row갯수
-	private Long line;
+	private Long perPage;
 	
 	//페이지번호
-	private Long pageNum;
+	private Long page;
 	
 	//시작번호
 	private Long startRow;
@@ -36,14 +36,14 @@ public class Pager {
 
 
 	public void makeRow() {
-		this.startRow=(this.getPageNum()-1)*this.getLine()+1;
-		this.lastRow=this.getPageNum()*this.getLine();
+		this.startRow=(this.getPage()-1)*this.getperPage()+1;
+		this.lastRow=this.getPage()*this.getperPage();
 	}
 	
 	public void makeNum(Long totalCount) {
 		
-		Long totalPage=totalCount/this.getLine();
-		if(totalCount%this.getLine() != 0) {
+		Long totalPage=totalCount/this.getperPage();
+		if(totalCount%this.getperPage() != 0) {
 			totalPage++;
 			
 		}
@@ -55,8 +55,8 @@ public class Pager {
 			totalBlock++;
 		}
 		
-		Long curBlock=this.getPageNum()/perBlock;
-		if(this.getPageNum()%perBlock!=0) {
+		Long curBlock=this.getPage()/perBlock;
+		if(this.getPage()%perBlock!=0) {
 			curBlock++;
 		}
 		//-----여기까지 했음 curBlock으로 startNum, lastNum 구하기
@@ -81,29 +81,29 @@ public class Pager {
 		
 	}
 	
-	public Long getLine() {
+	public Long getperPage() {
 		//null이 오거나 0이 오거나 음수가 올때 셋팅>>한줄도 없음 또는 누군가 음수값 넣을때
-		if(this.line==null || this.line < 1) {
-			this.line=10L; 
+		if(this.perPage==null || this.perPage < 1) {
+			this.perPage=10L; 
 		}
 		
-		return line;
+		return perPage;
 	}
 
-	public void setLine(Long line) {
-		this.line = line;
+	public void setperPage(Long perPage) {
+		this.perPage = perPage;
 	}
 	
-	public Long getPageNum() {
+	public Long getPage() {
 		//페이지 번호에 아무것도 넣어주지 않거나 음수일때 1번 페이지를 보여줘라
-		if(this.pageNum==null || this.pageNum<1) {
-			this.pageNum=1L;
+		if(this.page==null || this.page<1) {
+			this.page=1L;
 		}
-		return pageNum;
+		return page;
 	}
 
-	public void setPageNum(Long pageNum) {
-		this.pageNum = pageNum;
+	public void setPage(Long page) {
+		this.page = page;
 	}
 
 	public Long getStartRow() {

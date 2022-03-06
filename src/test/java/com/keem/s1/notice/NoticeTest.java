@@ -17,7 +17,7 @@ public class NoticeTest extends MyJunitTest {
 	@Test
 	public void list() throws Exception {
 		Pager pager = new Pager();
-		pager.setLine(10L);
+		pager.setperPage(10L);
 		pager.makeRow();
 		List<NoticeDTO> ar = noticeDAO.list(pager);
 		System.out.println(ar.get(0).getNum());
