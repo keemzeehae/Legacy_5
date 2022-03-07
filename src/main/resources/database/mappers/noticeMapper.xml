@@ -51,7 +51,7 @@
 
 	<insert id="add" parameterType="NoticeDTO" >
 		INSERT INTO NOTICE
-		VALUES (NOTICE_SEQ.NEXTVAL, #{title},#{contents},#{writer},SYSDATE,#{hit})
+		VALUES (NOTICE_SEQ.NEXTVAL, #{title},#{contents},#{writer},SYSDATE,0)
 	</insert>
 	
 	<delete id="delete" parameterType="NoticeDTO">

@@ -23,6 +23,22 @@ public class NoticeController {
 		return "notice";
 	}
 	
+	@RequestMapping(value="update",method=RequestMethod.POST)
+	public String update(NoticeDTO noticeDTO) throws Exception{
+		int result=noticeService.update(noticeDTO);
+		return "redirect:./list";
+	}
+	
+	@RequestMapping(value="update",method=RequestMethod.GET)
+	public ModelAndView update(BoardDTO boardDTO,NoticeDTO noticeDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		boardDTO=noticeService.detail(noticeDTO);
+		mv.setViewName("board/update");
+		mv.addObject("dto",boardDTO);
+		return mv;
+	}
+	
+	
 	@RequestMapping(value="delete")
 	public String delete(NoticeDTO noticeDTO) throws Exception{
 		int result=noticeService.delete(noticeDTO);

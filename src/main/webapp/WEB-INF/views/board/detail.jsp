@@ -15,6 +15,7 @@
 	<h3>조회수 : ${dto.hit}</h3>
 	
 	<a href="./list">List</a>
-	<a href="./delete?num=${notice.num}">Delete</a>
+	<a href="./delete?num=${dto.num}">Delete</a>
+	<a href="./update?num=${dto.num}">Update</a>
 </body>
 </html>

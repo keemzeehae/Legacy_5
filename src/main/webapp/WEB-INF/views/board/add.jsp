@@ -17,8 +17,6 @@
 		</div>
 
 		작성자 <input type="text" name="writer"> 
-		조회수<input type="number"
-			name="hit">
 		<input type="submit" name="ADD">
 		<button type="button">ADD</button>
 	</form>
