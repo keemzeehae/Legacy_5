@@ -1,14 +1,9 @@
-package com.keem.s1.notice;
+package com.keem.s1.board;
 
 import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
-public class NoticeDTO {
+public class BoardDTO {
 	
-//	SimpleDateFormat format1 = new SimpleDateFormat("yy/mm/dd");
-//	Calendar date = Calendar.getInstance();
-//	String sysdate = format1.format(date.getTime());
 	
 	private Long num;
 	private String title;
@@ -16,6 +11,8 @@ public class NoticeDTO {
 	private String writer;
 	private Date regDate;
 	private Long hit;
+	
+	
 	public Long getNum() {
 		return num;
 	}
@@ -40,8 +37,6 @@ public class NoticeDTO {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	
-	
 	public Date getRegDate() {
 		return regDate;
 	}
@@ -54,9 +49,7 @@ public class NoticeDTO {
 	public void setHit(Long hit) {
 		this.hit = hit;
 	}
-	
-	
-	
+
 	
 	
 }

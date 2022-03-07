@@ -59,14 +59,14 @@
 	<div>
 	
 		<c:if test="${pager.pre}">
-			<a href="./list?page=${pager.startNum-1}">PREVIEW</a>
+			<a href="./list?page=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}">PREVIEW</a>
 		</c:if>
 		<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" step="1" var="i">
 		<!-- 여기서 ?뒤에 page가 파라미터고 그 파라미터의 값이 ${i}라고 이해해야함 -->
 			<a href="./list?page=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a>
 		</c:forEach>
 		<c:if test="${pager.next}">
-			<a href="./list?page=${pager.lastNum+1}">NEXT</a>
+			<a href="./list?page=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}">NEXT</a>
 		</c:if>
 	</div>
 	<a href="./add">add</a>

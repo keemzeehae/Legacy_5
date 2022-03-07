@@ -3,15 +3,51 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace="com.keem.s1.notice.NoticeDAO">
+<mapper namespace="com.keem.s1.board.notice.NoticeDAO">
 
 	<select id="detail" parameterType="NoticeDTO" resultType="NoticeDTO" >
 		SELECT * FROM NOTICE WHERE NUM=#{num}
 	</select>
 
-	<select id="list" resultType="NoticeDTO" >
-		SELECT * FROM NOTICE
+	<select id="total" resultType="Long" parameterType="Pager">
+		SELECT COUNT(NUM) FROM NOTICE
+		WHERE NUM>0 
+			AND
+			<choose>
+				<when test="kind=='title'">
+					TITLE
+				</when>
+				<when test="kind=='contents'">
+					CONTENTS
+				</when>
+				<otherwise>
+					WRITER
+				</otherwise>
+			</choose> 
+			LIKE '%'||#{search}||'%'
 	</select>
+	
+	<select id="list" parameterType="Pager" resultType="NoticeDTO" >
+		SELECT * FROM 
+		(SELECT ROWNUM R, B.* FROM 
+		(SELECT * FROM NOTICE WHERE 
+			NUM>0 
+			AND
+			<choose>
+				<when test="kind=='title'">
+					TITLE
+				</when>
+				<when test="kind=='contents'">
+					CONTENTS
+				</when>
+				<otherwise>
+					WRITER
+				</otherwise>
+			</choose> 
+			LIKE '%'||#{search}||'%'
+			ORDER BY NUM DESC) B) 
+		WHERE R BETWEEN #{startRow} AND #{lastRow}
+	</select> 
 
 	<insert id="add" parameterType="NoticeDTO" >
 		INSERT INTO NOTICE
@@ -22,4 +58,8 @@
 		DELETE NOTICE WHERE NUM=#{num}
 	</delete>
 	
+	<update id="update" parameterType="NoticeDTO">
+		UPDATE NOTICE SET TITLE=#{title},CONTENTS=#{contents}
+		WHERE NUM=#{num}
+	</update>
 </mapper>
