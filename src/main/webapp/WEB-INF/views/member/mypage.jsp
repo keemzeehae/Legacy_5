@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,10 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>MY page</h1>
-<h3>${dto.id}</h3>
-<h3>${dto.name}</h3>
-<h3>${dto.phone}</h3>
-<h3>${dto.email}</h3>
+	<h1>MY page</h1>
+	<h3>${dto.id}</h3>
+	<h3>${dto.name}</h3>
+	<h3>${dto.phone}</h3>
+	<h3>${dto.email}</h3>
+	<img alt="" src="파일의경로명/파일명">
 </body>
 </html>

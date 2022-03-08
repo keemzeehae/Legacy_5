@@ -15,6 +15,9 @@
 </head>
 <body>
 	<c:import url="./template/header.jsp"></c:import>
+	<div>
+		<img alt="" src="./resources/images/ju.jpg">
+	</div>
 	<h1>index page</h1>
 	<!-- scope명 생략가능 -->
 	<h3>${sessionScope.member.name}님환영합니다

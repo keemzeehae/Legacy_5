@@ -8,7 +8,8 @@
 </head>
 <body>
 	<h1>Join Page</h1>
-	<form action="./join" method="post" id="frm">
+	<form action="./join" method="post" id="frm"
+		enctype="multipart/form-data">
 		<fieldset>
 			<legend>ID</legend>
 			<input type="text" name="id" id="id">
@@ -17,7 +18,8 @@
 
 		<fieldset>
 			<legend>PW</legend>
-			<input type="password" name="pw" id="pw" placeholder="8글자 이상 12글자 이하로 작성하세요.">
+			<input type="password" name="pw" id="pw"
+				placeholder="8글자 이상 12글자 이하로 작성하세요.">
 			<div id="pwResult"></div>
 		</fieldset>
 
@@ -29,7 +31,7 @@
 
 		<fieldset>
 			<legend>이름</legend>
-			<input type="text" name="name" id="name"> 
+			<input type="text" name="name" id="name">
 		</fieldset>
 
 		<fieldset>
@@ -43,10 +45,15 @@
 		</fieldset>
 
 		<fieldset>
+			<legend>사진추가</legend>
+			<input type="file" name="photo" id="photo">
+		</fieldset>
+		
+		<fieldset>
 			<button type="button" id="btn">Join</button>
 		</fieldset>
 
-		
+
 		<script src="../resources/js/join2.js"></script>
 
 	</form>
