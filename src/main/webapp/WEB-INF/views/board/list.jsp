@@ -31,8 +31,8 @@
 		<table class="table-basic">
 			<thead>
 				<tr>
+					<th>글번호</th>
 					<th>글제목</th>
-					<th>내용</th>
 					<th>작성자</th>
 					<th>작성일자</th>
 					<th>조회수</th>
@@ -42,8 +42,12 @@
 			<tbody>
 				<c:forEach items="${list}" var="board">
 					<tr>
-						<td><a href="./detail?num=${pageScope.board.num}">${pageScope.board.title}</a></td>
-						<td>${pageScope.board.contents}</td>
+						<td>${pageScope.board.num}</td>
+						<td><a href="./detail?num=${pageScope.board.num}">
+						<c:catch var="message">
+						<c:forEach begin="1" end="${board.depth }" >--</c:forEach>
+						</c:catch>
+						${pageScope.board.title}</a></td>
 						<td>${pageScope.board.writer}</td>
 						<td>${pageScope.board.regDate}</td>
 						<td>${pageScope.board.hit}</td>

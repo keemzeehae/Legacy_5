@@ -5,6 +5,16 @@
     
 <mapper namespace="com.keem.s1.board.qna.QnaDAO">
 
+	<insert id="reply" parameterType="QnaDTO">
+		INSERT INTO QNA 
+		VALUES(QNA_SEQ.NEXTVAL,#{title},#{contents},#{writer},SYSDATE,0,#{ref},#{step},#{depth})
+	</insert>
+
+	<update id="stepUpdate" parameterType="QnaDTO">
+	UPDATE QNA SET STEP=STEP+1
+	WHERE REF=#{ref} AND STEP>#{step}	
+	</update>
+
 	<select id="total" resultType="Long" parameterType="Pager">
  		SELECT COUNT(num) FROM QNA
  		WHERE NUM>0
@@ -38,7 +48,7 @@
  				</otherwise>
  			</choose>
  			LIKE '%'||#{search}||'%'
- 			ORDER BY NUM DESC) Q)
+ 			ORDER BY REF DESC, STEP ASC) Q)
  		WHERE R BETWEEN #{startRow} AND #{lastRow}
  			
  	</select>
