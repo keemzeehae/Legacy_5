@@ -10,9 +10,9 @@
 	<h1>Bankbook add page</h1>
 	
 	<h1>상품추가</h1>
-		<form action="./add" method="POST">
-			BookName<input type="text" name="bookName">
-			BookContents<textarea name="bookContents" rows="10" cols="50"></textarea>
+		<form action="./add" method="POST" id="frm">
+			BookName<input type="text" name="bookName" id="bookName">
+			BookContents<textarea name="bookContents" id="bookContents" rows="10" cols="50"></textarea>
 			BookRate<input type="number" step="0.01" name="bookRate">
 			BookSale
 			<div>
@@ -29,7 +29,9 @@
 				<input type="checkbox" name="">
 			</div>
 			<input type="submit" value="ADD">
-			<button type="button">add</button>
+			<button type="button" id="btn">add</button>
+
+			<script src="../resources/js/bankbook.js"></script>
 		</form>
 </body>
 </html>

@@ -20,7 +20,7 @@
 				</c:when>
 				<c:otherwise>
 					<li><a href="/s1/member/login">로그인<span class="material-icons icon">login</span></a></li>
-					<li><a href="/s1/member/join">회원가입<span class="material-icons icon">people</span></a></li>
+					<li><a href="/s1/member/joinCheck">회원가입<span class="material-icons icon">people</span></a></li>
 				</c:otherwise>
 			</c:choose>
 		</ul>

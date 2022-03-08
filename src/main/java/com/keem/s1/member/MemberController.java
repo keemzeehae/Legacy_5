@@ -59,12 +59,23 @@ public class MemberController {
 		
 		memberDTO= memberService.login(memberDTO);
 		
-		String path="redirect:./login";
-		if(memberDTO !=null) {
-			//로그인한 사용자의 정보가 Session에 들어가 있음 member라는 이름으로 
+//		String path="redirect:./login";
+//		if(memberDTO !=null) {
+//			//로그인한 사용자의 정보가 Session에 들어가 있음 member라는 이름으로 
+//			session.setAttribute("member", memberDTO);
+//			path="redirect:../";
+//		}
+		String message="Login fail";
+		String p="./login";
+		
+		if(memberDTO!=null) {
 			session.setAttribute("member", memberDTO);
-			path="redirect:../";
+			message="Login Success";
+			p="../";
 		}
+		model.addAttribute("path",p);
+		model.addAttribute("message",message);
+		String path="common/result";
 		return path;
 	}
 	
@@ -82,6 +93,9 @@ public class MemberController {
 	@RequestMapping(value="join",method=RequestMethod.GET)
 	public void join() throws Exception{
 		
+	}
+	@RequestMapping(value="joinCheck",method=RequestMethod.GET)
+	public void joinCheck() throws Exception {
 		
 	}
 }
