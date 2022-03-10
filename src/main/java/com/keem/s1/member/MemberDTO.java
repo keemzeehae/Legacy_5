@@ -1,14 +1,21 @@
 package com.keem.s1.member;
 
-public class MemberDTO {
+public class MemberDTO  {
 
 	private String id;
 	private String pw;
 	private String name;
 	private String phone;
 	private String email;
+	//포함 member has a memberfileDTO (photo)
+	private MemberFileDTO memberFileDTO;
 	
-	
+	public MemberFileDTO getMemberFileDTO() {
+		return memberFileDTO;
+	}
+	public void setMemberFileDTO(MemberFileDTO memberFileDTO) {
+		this.memberFileDTO = memberFileDTO;
+	}
 	public String getId() {
 		return id;
 	}

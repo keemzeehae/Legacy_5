@@ -10,9 +10,28 @@
 		VALUES (FILE_SEQ.NEXTVAL,#{id},#{fileName},#{oriName})
 	</insert>
 	
-	<select id="mypage" parameterType="MemberDTO" resultType="MemberDTO">
-		SELECT ID,NAME,EMAIL,PHONE FROM MEMBER WHERE ID=#{id}
+	<select id="mypage" parameterType="MemberDTO" resultMap="mypageResult">
+		SELECT ID,M.NAME,M.EMAIL,M.PHONE,MF.FILENUM,MF.FILENAME,MF.ORINAME 
+			FROM MEMBER M 
+				LEFT OUTER JOIN
+        			MEMBERFILE MF
+        				USING(ID)
+        	WHERE ID=#{id} 
+
 	</select>
+	
+	<resultMap type="MemberDTO" id="mypageResult">
+		<id column="id" property="id"/> <!-- Pk로 쓰는걸 넣어달라 id컬럼명에 들어가는 값 property에 멤버변수명  -->
+		<result column="name" property="name"/>
+		<result column="email" property="email"/>
+		<result column="phone" property="phone"/>
+		<association property="memberFileDTO" javaType="MemberFileDTO">
+			<id column="fileNum" property="fileNum"/>
+			<result column="fileName" property="fileName"/><!-- 그외 나머지는 result column명이 똑같으면 안써줘도 됨 -->
+			<result column="oriName" property="oriName"/>		
+		</association> <!-- 1:1 일때 쓰는것 -->
+		
+	</resultMap>
 
 	<select id="login" parameterType="MemberDTO" resultType="MemberDTO">
 		SELECT ID, NAME FROM MEMBER WHERE ID=#{id} AND PW=#{pw}
