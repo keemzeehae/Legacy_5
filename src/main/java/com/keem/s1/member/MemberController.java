@@ -82,14 +82,16 @@ public class MemberController {
 	
 	@RequestMapping(value="login",method=RequestMethod.GET)
 	public void login(Model model,@CookieValue(value="rememberId",defaultValue ="",required=false) String rememberId) throws Exception{
-		model.addAttribute("rememberId", rememberId);
+		//model.addAttribute("rememberId", rememberId);
 	}
 	
 	@RequestMapping(value="join",method=RequestMethod.POST)
 	public String join(MemberDTO memberDTO, MultipartFile photo) throws Exception{
 		System.out.println(photo.getOriginalFilename());
-		System.out.println(photo.getSize());
+		System.out.println(photo.getSize());//byte
+		
 		int result = memberService.join(memberDTO,photo);
+		
 		return "redirect:../";
 	}
 

@@ -5,6 +5,11 @@
     
 <mapper namespace="com.keem.s1.member.MemberDAO"><!-- join하려고 하는 mapper -->
 	
+	<insert id="addFile" parameterType="MemberFileDTO">
+		INSERT INTO MEMBERFILE (FILENUM,ID,FILENAME,ORINAME)
+		VALUES (FILE_SEQ.NEXTVAL,#{id},#{fileName},#{oriName})
+	</insert>
+	
 	<select id="mypage" parameterType="MemberDTO" resultType="MemberDTO">
 		SELECT ID,NAME,EMAIL,PHONE FROM MEMBER WHERE ID=#{id}
 	</select>

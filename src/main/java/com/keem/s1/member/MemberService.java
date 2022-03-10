@@ -15,6 +15,7 @@ public class MemberService {
 	@Autowired
 	private FileManager fileManager;
 	
+	
 	public MemberDTO mypage(MemberDTO memberDTO) throws Exception{
 		return memberDAO.mypage(memberDTO);
 	}
@@ -24,11 +25,18 @@ public class MemberService {
 	}
 	
 	public int join(MemberDTO memberDTO, MultipartFile photo) throws Exception{
+		int result =memberDAO.join(memberDTO);
+		
 		//1. 파일을 하드디스크에 저장
+		String fileName = fileManager.save(photo, "resources/upload/member/");
 		
 		//2. 정보를 DB에 저장 
-		fileManager.save(photo, "resources/upload/member/");
-		return memberDAO.join(memberDTO);
+		MemberFileDTO memberFileDTO = new MemberFileDTO();
+		memberFileDTO.setId(memberDTO.getId());
+		memberFileDTO.setFileName(fileName);
+		memberFileDTO.setOriName(photo.getOriginalFilename());
+		memberDAO.addFile(memberFileDTO);
+		return result;  //memberDAO.join(memberDTO);
 	}
 
 }

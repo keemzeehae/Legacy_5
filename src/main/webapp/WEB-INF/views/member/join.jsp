@@ -50,11 +50,12 @@
 		</fieldset>
 		
 		<fieldset>
-			<button type="button" id="btn">Join</button>
+			<!-- 최종 완성시 사용<button type="button" id="btn">Join</button>-->
+			<button type="submit" id="btn">Join</button>
 		</fieldset>
 
 
-		<script src="../resources/js/join2.js"></script>
+		<!-- <script type="text/javascript" scr="../resources/js/join2.js"></script> -->
 
 	</form>
 </body>
