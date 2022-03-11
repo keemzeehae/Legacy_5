@@ -6,6 +6,9 @@ import com.keem.s1.util.Pager;
 
 public interface BoardDAO {
 
+	//ADDFILE
+	public int addFile(BoardFileDTO boardFileDTO) throws Exception;
+	
 	//detail 추상메서드
 	public BoardDTO detail(BoardDTO boardDTO) throws Exception;
 	
@@ -24,3 +27,4 @@ public interface BoardDAO {
 	//total 
 	public Long total(Pager pager) throws Exception;
 }
+

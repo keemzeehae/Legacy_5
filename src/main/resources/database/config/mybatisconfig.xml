@@ -8,12 +8,17 @@
 	<typeAliases>
 		<typeAlias type="com.keem.s1.bankbook.BankbookDTO" alias="BankbookDTO" />
 		<typeAlias type="java.lang.Long" alias="Long" />
+		<typeAlias type="java.util.List" alias="List"/>
 		<typeAlias type="com.keem.s1.member.MemberDTO" alias="MemberDTO" />
-		<typeAlias type="com.keem.s1.board.notice.NoticeDTO" alias="NoticeDTO" />
-		<typeAlias type="com.keem.s1.util.Pager" alias="Pager"/>
-		<typeAlias type="com.keem.s1.board.BoardDTO" alias="BoardDTO"/>
-		<typeAlias type="com.keem.s1.board.qna.QnaDTO" alias="QnaDTO"/>
 		<typeAlias type="com.keem.s1.member.MemberFileDTO" alias="MemberFileDTO"/>
+		<typeAlias type="com.keem.s1.board.notice.NoticeDTO" alias="NoticeDTO" />
+		<typeAlias type="com.keem.s1.board.notice.NoticeFileDTO" alias="NoticeFileDTO"/>
+		<typeAlias type="com.keem.s1.board.BoardDTO" alias="BoardDTO"/>
+		<typeAlias type="com.keem.s1.board.BoardFileDTO" alias="BoardFileDTO"/>
+		<typeAlias type="com.keem.s1.board.qna.QnaDTO" alias="QnaDTO"/>
+		<typeAlias type="com.keem.s1.board.qna.QnaFileDTO" alias="QnaFileDTO"/>
+		<typeAlias type="com.keem.s1.util.Pager" alias="Pager"/>
+		
 	</typeAliases>
 </configuration>
 

@@ -25,6 +25,7 @@ public class MemberService {
 	}
 	
 	public int join(MemberDTO memberDTO, MultipartFile photo) throws Exception{
+		//member table에 먼저 insert해야됨 왜냐면 id가 foreign key니까
 		int result =memberDAO.join(memberDTO);
 		
 		//1. 파일을 하드디스크에 저장

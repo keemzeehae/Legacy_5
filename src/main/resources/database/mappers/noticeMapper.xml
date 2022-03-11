@@ -5,9 +5,38 @@
     
 <mapper namespace="com.keem.s1.board.notice.NoticeDAO">
 
-	<select id="detail" parameterType="NoticeDTO" resultType="NoticeDTO" >
-		SELECT * FROM NOTICE WHERE NUM=#{num}
+	<insert id="addFile" parameterType="BoardFileDTO">
+		INSERT INTO NOTICEFILE(FILENUM,NUM,FILENAME,ORINAME)
+		VALUES (FILE_SEQ.NEXTVAL,#{num},#{fileName},#{oriName})
+	</insert>
+	
+	<select id="seqNum" resultType="Long">
+	<!-- SELECT MAX(NUM) FROM NOTICE -->
+		SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
 	</select>
+	
+	<select id="detail" parameterType="NoticeDTO" resultMap="detailResult" >
+		<!-- SELECT * FROM NOTICE WHERE NUM=#{num}-->
+		SELECT * FROM NOTICE N
+   			LEFT OUTER JOIN
+    		NOTICEFILE NF
+    			USING(NUM)
+    	WHERE NUM=#{num}
+	</select>
+	
+	<resultMap type="NoticeDTO" id="detailResult">
+		<id column="num" property="num"/>
+		<result column="title" property="title"/>
+		<result column="contents" property="contents"/>
+		<result column="writer" property="writer"/>
+		<result column="regDate" property="regDate"/>
+		<result column="hit" property="hit"/>
+		<collection property="fileDTOs" javaType="List" ofType="NoticeFileDTO">
+		<id column="fileNum" property="fileNum"/>
+		<result column="fileName" property="fileName"/>
+		<result column="oriName" property="oriName"/>
+		</collection>
+	</resultMap>
 
 	<select id="total" resultType="Long" parameterType="Pager">
 		SELECT COUNT(NUM) FROM NOTICE
@@ -50,8 +79,11 @@
 	</select> 
 
 	<insert id="add" parameterType="NoticeDTO" >
+		<selectKey keyProperty="num" order="BEFORE" resultType="Long">
+			SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
 		INSERT INTO NOTICE
-		VALUES (NOTICE_SEQ.NEXTVAL, #{title},#{contents},#{writer},SYSDATE,0)
+		VALUES (#{num}, #{title},#{contents},#{writer},SYSDATE,0)
 	</insert>
 	
 	<delete id="delete" parameterType="NoticeDTO">

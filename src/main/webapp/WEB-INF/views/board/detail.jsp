@@ -15,6 +15,12 @@
 	<h3>작성자 : ${dto.regDate}</h3>
 	<h3>조회수 : ${dto.hit}</h3>
 	
+	<div>
+		<c:forEach items="${dto.fileDTOs }" var="f">
+			<a href="../resources/upload/${board}/${f.fileName}">${f.oriName}</a>
+		</c:forEach>
+	</div>
+	
 	<a href="./list">List</a>
 	<a href="./delete?num=${dto.num}">Delete</a>
 	<a href="./update?num=${dto.num}">Update</a>

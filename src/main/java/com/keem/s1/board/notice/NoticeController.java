@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.keem.s1.board.BoardDTO;
@@ -46,8 +47,8 @@ public class NoticeController {
 	}
 
 	@RequestMapping(value="add", method=RequestMethod.POST)
-	public String add(NoticeDTO noticeDTO) throws Exception{
-		int result =noticeService.add(noticeDTO);
+	public String add(NoticeDTO noticeDTO,MultipartFile [] files) throws Exception{
+		int result =noticeService.add(noticeDTO,files);
 		return "redirect:./list";
 	}
 	
