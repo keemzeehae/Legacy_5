@@ -20,7 +20,7 @@ public class FileManager {
 	public String save(MultipartFile multipartFile,String path) throws Exception{
 		//1. 어디에 저장할거냐 /resources/upload/memeber
 		//path = /resources/upload/member 
-		
+		//파일 저장은 tomcat이 아니라 OS에서 저장
 		String realPath= servletContext.getRealPath(path);
 		System.out.println(realPath);
 		

@@ -16,6 +16,9 @@ public class NoticeDAO implements BoardDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE ="com.keem.s1.board.notice.NoticeDAO.";
 	
+	public NoticeFileDTO detailFile(NoticeFileDTO NoticeFileDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"detailFile",NoticeFileDTO);
+	}
 	
 	@Override
 	public int addFile(BoardFileDTO boardFileDTO) throws Exception {

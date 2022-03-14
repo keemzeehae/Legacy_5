@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.keem.s1.board.BoardDTO;
+import com.keem.s1.board.BoardFileDTO;
 import com.keem.s1.board.BoardService;
 import com.keem.s1.util.FileManager;
 import com.keem.s1.util.Pager;
@@ -18,6 +19,10 @@ public class QnaService implements BoardService {
 	private QnaDAO qnaDAO;
 	@Autowired
 	private FileManager fileManager;
+	
+	public QnaFileDTO detailFile(QnaFileDTO qnaFileDTO) throws Exception{
+		return qnaDAO.detailFile(qnaFileDTO);
+	}
 	
 	@Override
 	public List<BoardDTO> list(Pager pager) throws Exception {

@@ -18,6 +18,10 @@ public class QnaDAO implements BoardDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.keem.s1.board.qna.QnaDAO.";
 
+	public QnaFileDTO detailFile(QnaFileDTO qnaFileDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"detailFile",qnaFileDTO);
+	}
+	
 	public int reply(QnaDTO qnaDTO) throws Exception{
 		return sqlSession.insert(NAMESPACE+"reply",qnaDTO);
 	}

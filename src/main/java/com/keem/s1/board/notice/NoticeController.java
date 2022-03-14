@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.keem.s1.board.BoardDTO;
+import com.keem.s1.board.BoardFileDTO;
 import com.keem.s1.util.Pager;
 
 @Controller
@@ -22,6 +23,16 @@ public class NoticeController {
 	@ModelAttribute("board")
 	public String board() {
 		return "notice";
+	}
+	@RequestMapping(value="photoDownload", method = RequestMethod.GET)
+	public ModelAndView fileDown(NoticeFileDTO noticeFileDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		noticeFileDTO = noticeService.detailFile(noticeFileDTO);
+		//file down받는 클래스 bean의 이름으로 
+		
+		mv.setViewName("fileDown");
+		mv.addObject("file",noticeFileDTO);
+		return mv;
 	}
 	
 	@RequestMapping(value="update",method=RequestMethod.POST)
