@@ -72,7 +72,23 @@ public class NoticeService implements BoardService{
 	@Override
 	public int delete(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return noticeDAO.delete(boardDTO);
+		//num으로 HDD에 저장된 파일명 조회
+		List<NoticeFileDTO> ar = noticeDAO.listFile(boardDTO);
+		
+		int result=noticeDAO.delete(boardDTO);
+		
+		if(result>0) {
+//			for (int i=0;i<ar.size();i++) {
+//				ar.get(i);
+//			}
+			//for(Collection에서 꺼낼타입명 변수명; Collection의 변수명){}
+			for(NoticeFileDTO nfdto:ar) {
+				
+				boolean check=fileManager.remove("resources/upload/notice/", nfdto.getFileName());
+			}
+		}
+		
+		return result;
 	}
 	
 	
