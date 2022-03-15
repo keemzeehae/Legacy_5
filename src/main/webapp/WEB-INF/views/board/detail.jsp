@@ -23,8 +23,10 @@
 	</div>
 	
 	<a href="./list">List</a>
+	<c:if test="${member.id eq dto.writer}">
 	<a href="./delete?num=${dto.num}">Delete</a>
 	<a href="./update?num=${dto.num}">Update</a>
+	</c:if>
 	<!-- ne 는 같지 않다면 not equal -->
 	<c:if test="${board ne 'notice'}">
 		<a href="./reply?num=${dto.num}">Reply</a>
