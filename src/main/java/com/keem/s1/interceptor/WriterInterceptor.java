@@ -12,6 +12,7 @@ import com.keem.s1.board.BoardDTO;
 import com.keem.s1.board.qna.QnaDAO;
 import com.keem.s1.board.qna.QnaDTO;
 import com.keem.s1.member.MemberDTO;
+
 @Component
 public class WriterInterceptor extends HandlerInterceptorAdapter{
 
@@ -21,7 +22,11 @@ public class WriterInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		
+		
 		boolean check=true;
+		System.out.println("Writer Interceptor");
+		
 		Long num=Long.parseLong(request.getParameter("num"));
 		BoardDTO boardDTO = new QnaDTO();
 		boardDTO.setNum(num);

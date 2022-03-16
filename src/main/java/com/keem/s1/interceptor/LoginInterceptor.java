@@ -9,12 +9,14 @@ import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.keem.s1.member.MemberDTO;
-@Component
+
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		
+		System.out.println("로그인 Interceptor");
 		MemberDTO memberDTO=(MemberDTO)request.getSession().getAttribute("member");
 
 		//return이 boolean타입
