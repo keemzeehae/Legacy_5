@@ -19,14 +19,23 @@
 		
 		작성자 <input type="text" name="writer" value="${member.id}" readonly="readonly">
 		
+		<div id="fileResult">
+
+			<!-- <div>
+				<input type="file" name="files"><button type="button">DEL</button>
+			</div> -->
+			
+			<!-- 
+			<input type="file" name="files">
+			<input type="file" name="files"> -->
+		</div>
 		<div>
-			<input type="file" name="files">
-			<input type="file" name="files">
-			<input type="file" name="files">
+			<button type="button" id="fileAdd">FileAdd</button>
 		</div>
 		 
 		<input type="submit" name="ADD">
 		<button type="button">ADD</button>
 	</form>
+	<script src="../resources/js/file.js"></script>
 </body>
 </html>

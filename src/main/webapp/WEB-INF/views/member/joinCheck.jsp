@@ -19,37 +19,41 @@
 			전체 동의<input type="checkbox" id="checkAll">
 		</div>
 		
-		<div class="rule">
-			<fieldset>
-				<legend>동의 1</legend>
-				<input type="checkbox" class="check">
-			</fieldset>
-			<div></div>
+		<div id="rules">
+		
+			<div class="rule">
+				<fieldset>
+					<legend>동의 1</legend>
+					<input type="checkbox" class="check">
+				</fieldset>
+				<div></div>
+			</div>
+	
+			<div class="rule">
+				<fieldset>
+					<legend>동의 2</legend>
+					<input type="checkbox" class="check" >
+				</fieldset>
+				<div></div>
+			</div>
+	
+			<div class="rule">
+				<fieldset>
+					<legend>동의 3</legend>
+					<input type="checkbox" class="check" >
+				</fieldset>
+				<div></div>
+			</div>
+	
+			<div class="rule">
+				<fieldset>
+					<legend>동의 4</legend>
+					<input type="checkbox" class="check">
+				</fieldset>
+				<div></div>
+			</div>
 		</div>
-
-		<div class="rule">
-			<fieldset>
-				<legend>동의 2</legend>
-				<input type="checkbox" class="check" >
-			</fieldset>
-			<div></div>
-		</div>
-
-		<div class="rule">
-			<fieldset>
-				<legend>동의 3</legend>
-				<input type="checkbox" class="check" >
-			</fieldset>
-			<div></div>
-		</div>
-
-		<div class="rule">
-			<fieldset>
-				<legend>동의 4</legend>
-				<input type="checkbox" class="check">
-			</fieldset>
-			<div></div>
-		</div>
+		
 		<div class="rule">
 			<button id="btn">Join</button>
 		</div>
