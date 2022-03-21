@@ -18,7 +18,7 @@
 		<typeAlias type="com.keem.s1.board.qna.QnaDTO" alias="QnaDTO"/>
 		<typeAlias type="com.keem.s1.board.qna.QnaFileDTO" alias="QnaFileDTO"/>
 		<typeAlias type="com.keem.s1.util.Pager" alias="Pager"/>
-		
+		<typeAlias type="com.keem.s1.board.notice.noticeReply.NoticeReplyDTO" alias="NoticeReplyDTO" />
 	</typeAliases>
 </configuration>
 
