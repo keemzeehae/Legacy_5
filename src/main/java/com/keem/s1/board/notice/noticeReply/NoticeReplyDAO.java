@@ -13,6 +13,9 @@ public class NoticeReplyDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.keem.s1.board.notice.noticeReply.NoticeReplyDAO.";
 	
+	public int delete(NoticeReplyDTO noticeReplyDTO) throws Exception{
+		return sqlSession.delete(NAMESPACE+"delete",noticeReplyDTO);
+	}
 	public int add(NoticeReplyDTO noticeReplyDTO) throws Exception{
 		return sqlSession.insert(NAMESPACE+"add",noticeReplyDTO);
 	}

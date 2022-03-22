@@ -5,8 +5,8 @@
     
 <mapper namespace="com.keem.s1.board.notice.noticeReply.NoticeReplyDAO">
 	<insert id="add" parameterType="NoticeReplyDTO">
-	INSERT INTO NOTICEREPLY (REPLYNUM,NUM,WRITER,CONTENTS,REGDATE)
-	VALUES (NOTICE_SEQ.NEXTVAL,#{num},#{writer},#{contents},sysdate)
+		INSERT INTO NOTICEREPLY (REPLYNUM,NUM,WRITER,CONTENTS,REGDATE)
+		VALUES (NOTICE_SEQ.NEXTVAL,#{num},#{writer},#{contents},sysdate)
 	</insert>
 	
 	<select id="list" parameterType="NoticeReplyDTO" resultType="NoticeReplyDTO">
@@ -14,4 +14,8 @@
 		WHERE NUM=#{num}
 		ORDER BY REPLYNUM DESC
 	</select>
+	
+	<delete id="delete" parameterType="NoticeReplyDTO">
+		DELETE NOTICEREPLY WHERE REPLYNUM=#{replynum}
+	</delete>
 </mapper>
