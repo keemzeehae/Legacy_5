@@ -17,8 +17,13 @@ public class QnaService implements BoardService {
 
 	@Autowired
 	private QnaDAO qnaDAO;
+
 	@Autowired
 	private FileManager fileManager;
+
+	public int fileDelete(QnaFileDTO qnaFileDTO) throws Exception{
+		return qnaDAO.fileDelete(qnaFileDTO);
+	}
 	
 	public QnaFileDTO detailFile(QnaFileDTO qnaFileDTO) throws Exception{
 		return qnaDAO.detailFile(qnaFileDTO);

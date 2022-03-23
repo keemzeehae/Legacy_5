@@ -3,7 +3,70 @@ const num=document.querySelector("#num");
 const writer=document.querySelector("#writer");
 const contents=document.querySelector("#contents");
 const replyResult=document.querySelector("#replyResult");
-const del=document.querySelectorAll(".del");
+// const del=document.querySelectorAll(".del");
+// const update=document.querySelectorAll(".update");
+
+//-----------------**UPDATE**------------------
+replyResult.addEventListener("click",function(event){
+
+    if(event.target.classList.contains("update")){
+
+        // event.target.classList.replace("update","reply");
+
+        // console.log(event.target.parentNode.previousSibling.previousSibling.previousSibling.previousSibling);
+       let num=event.target.getAttribute("data-index");//num
+       let replynum=document.querySelector("#up"+num);//td
+
+    
+       let text=replynum.innerText;
+       replynum.innerText='';
+
+
+       let tx= document.createElement('textarea');
+       tx.setAttribute("id","update"+num);
+       tx.classList.add("reply");
+       tx.setAttribute("data-num",num);
+       tx.value=text;
+
+       console.log(tx);
+       replynum.append(tx);
+        
+    }
+
+});
+
+replyResult.addEventListener("change",function(event){
+    if(event.target.classList.contains("reply")){
+        let contents= event.target.value;
+        let updateNum= event.target.getAttribute("data-num");
+
+        let check=window.confirm("수정하시겠습니까?");
+        //확인 : true / 취소 : false
+        if(check){
+        const xhttp=new XMLHttpRequest();
+        xhttp.open("POST","../noticeReply/update");
+        xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+
+        xhttp.send("replynum="+updateNum+"&contents="+contents);
+
+        xhttp.onreadystatechange=function(){
+
+            if(this.readyState==4&&this.status==200){
+                console.log(this.responseText);
+                if(this.responseText.trim()=='1'){
+                    alert("수정되었습니다.");
+                    document.querySelector("#up"+updateNum).innerHTML=contents;
+                }else{
+                    alert("수정 실패");
+                }
+            }
+        }
+
+        }
+
+     
+    }
+});
 
 
 
@@ -42,7 +105,7 @@ replyResult.addEventListener("click",function(event){
 
 
 
-//----------------**DELETE**--------------------
+//----------------**댓글 등록**--------------------
 getList();
 
 function getList(){

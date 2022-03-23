@@ -54,3 +54,42 @@ fileResult.addEventListener("click",function(event){
     }
 
 });
+
+
+//---------**file 수정하기**-------------
+const fileDeleteBtn = document.querySelectorAll(".fileDeleteBtn");
+const files = document.querySelector("#files");
+
+//클릭이벤트
+files.addEventListener("click",function(event){
+    if(event.target.classList.contains("fileDeleteBtn")){
+        let fileNum=event.target.getAttribute("data-fileNum");
+        let check=confirm("삭제시 복구 불가능합니다. 정말로 삭제하시겠습니까?");
+        if(!check){
+            return;
+        }
+        // console.log(fileNum);
+        //ajax파라미터: fileNum, Method: post, URL : fileDelete, Controller method fileDelete
+        const xhttp= new XMLHttpRequest();
+        xhttp.open("POST","./fileDelete");
+        xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+
+        xhttp.send("fileNum="+fileNum);
+        xhttp.onreadystatechange=function(){
+
+            if(this.readyState==4&&this.status==200){
+                console.log(this.responseText);
+                if(this.responseText.trim()=='1'){
+                    console.log("파일 삭제되었습니다.")
+                    event.target.parentNode.remove();
+                }else{
+                    alert("수정 실패");
+                }
+            }
+        }
+
+    };
+
+})
+//각각의 파일 이벤트를 어떻게 걸거냐
+

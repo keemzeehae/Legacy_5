@@ -104,4 +104,8 @@
  	<delete id="delete" parameterType="QnaDTO">
  		DELETE QNA WHERE NUM=#{num}
  	</delete>
+ 	
+ 	<delete id="fileDelete" parameterType="QnaFileDTO">
+ 		DELETE QNAFILE WHERE FILENUM=#{fileNum}
+ 	</delete>
 </mapper>
