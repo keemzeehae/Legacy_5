@@ -35,8 +35,8 @@ public class QnaController {
 		ModelAndView mv = new ModelAndView();
 		System.out.println(qnaFileDTO.getFileNum());
 		int result= qnaService.fileDelete(qnaFileDTO);
-		mv.setViewName("common/ajaxResult");
 		mv.addObject("result",result);
+		mv.setViewName("common/ajaxResult");
 		return mv;
 	}
 	
